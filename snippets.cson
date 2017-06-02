@@ -21,41 +21,41 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 '.text.html.php':
-  '[ACF] Radio':
-    'prefix': 'acf-radio'
-    'body': """
-      <?php if( get_field('color') == 'red' ): ?>
-          <p>Selected the Red choice!</p>
-      <?php endif; ?>
-      """
+    '[ACF] Radio':
+      'prefix': 'acf-radio'
+      'body': """
+          <?php if( get_field('color') == 'red' ): ?>
+              <p>Selected the Red choice!</p>
+          <?php endif; ?>
+          """
   '[ACF] Checkbox':
-    'prefix': 'acf-checkbox'
-    'body': """
-      <?php
-      $colors = get_field('colors');
+      'prefix': 'acf-checkbox'
+      'body': """
+          <?php
+          $colors = get_field('colors');
 
-      if( $colors && in_array('red', $colors) ): ?>
-          <p>Selected the Red choice!</p>
-      <?php endif; ?>
-      """
+          if( $colors && in_array('red', $colors) ): ?>
+              <p>Selected the Red choice!</p>
+          <?php endif; ?>
+          """
   '[ACF] Flexible':
-    'prefix': 'acf-flex'
-    'body': """
-      <?php if( have_rows('flexible_content_field_name') ): ?>
-          <?php while ( have_rows('flexible_content_field_name') ) : the_row(); ?>
-              <?php if( get_row_layout() == 'gallery' ): ?>
+      'prefix': 'acf-flex'
+      'body': """
+          <?php if( have_rows('flexible_content_field_name') ): ?>
+              <?php while ( have_rows('flexible_content_field_name') ) : the_row(); ?>
+                  <?php if( get_row_layout() == 'layout_name' ): ?>
 
-              <?php endif; ?>
-          <?php endwhile;?>
-      <?php endif; ?>
-      """
+                  <?php endif; ?>
+              <?php endwhile;?>
+          <?php endif; ?>
+          """
   '[ACF] Repeater':
-    'prefix': 'acf-repeater'
-    'body': """
-      <?php if( have_rows('repeater_field_name') ):
-          while ( have_rows('repeater_field_name') ) : the_row();
-          $var1 = get_sub_field('field_name'); ?>
+      'prefix': 'acf-repeater'
+      'body': """
+          <?php if( have_rows('repeater_field_name') ):
+              while ( have_rows('repeater_field_name') ) : the_row();
+              $var1 = get_sub_field('field_name'); ?>
 
-          <?php endwhile;
-      <?php endif; ?>
-      """
+              <?php endwhile;
+          <?php endif; ?>
+          """

@@ -1,0 +1,61 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'.text.html.php':
+  '[ACF] Radio':
+    'prefix': 'acf-radio'
+    'body': """
+      <?php if( get_field('color') == 'red' ): ?>
+          <p>Selected the Red choice!</p>
+      <?php endif; ?>
+      """
+  '[ACF] Checkbox':
+    'prefix': 'acf-checkbox'
+    'body': """
+      <?php
+      $colors = get_field('colors');
+
+      if( $colors && in_array('red', $colors) ): ?>
+          <p>Selected the Red choice!</p>
+      <?php endif; ?>
+      """
+  '[ACF] Flexible':
+    'prefix': 'acf-flex'
+    'body': """
+      <?php if( have_rows('flexible_content_field_name') ): ?>
+          <?php while ( have_rows('flexible_content_field_name') ) : the_row(); ?>
+              <?php if( get_row_layout() == 'gallery' ): ?>
+
+              <?php endif; ?>
+          <?php endwhile;?>
+      <?php endif; ?>
+      """
+  '[ACF] Repeater':
+    'prefix': 'acf-repeater'
+    'body': """
+      <?php if( have_rows('repeater_field_name') ):
+          while ( have_rows('repeater_field_name') ) : the_row();
+          $var1 = get_sub_field('field_name'); ?>
+
+          <?php endwhile;
+      <?php endif; ?>
+      """
